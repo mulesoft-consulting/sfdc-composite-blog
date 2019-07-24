@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce-composite="http://www.mulesoft.org/schema/mule/salesforce-composite" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce-composite http://www.mulesoft.org/schema/mule/salesforce-composite/current/mule-salesforce-composite.xsd">
+	<flow name="compositeSObjectTreeCreate" doc:id="f41cdcd9-6e60-499c-adc3-6d0c3d0f51ce" >
+		<ee:transform doc:name="Map Data to SObjectTree" doc:id="e71041c2-78f1-48fe-9b73-f62fd0e62d83">
+			<ee:message>
+				<ee:set-payload resource="dwl/account-composite.dwl" />
+			</ee:message>
+		</ee:transform>
+		<salesforce-composite:create-sobject-tree doc:name="Create sobject tree" doc:id="45d40d6b-3154-4ea7-af5b-a54ce008a1b5" config-ref="Salesforce_Composite_Config" type="Account" >
+			<reconnect />
+		</salesforce-composite:create-sobject-tree>
+		<error-handler >
+			<on-error-continue enableNotifications="true" logException="true" doc:name="Catch Validation Errors from SFDC" doc:id="b9fd5deb-2f7b-42e1-9ce7-c8ee7c0f0cc6" type="SALESFORCE-COMPOSITE:UNKNOWN, SALESFORCE-COMPOSITE:VALIDATION">
+				<logger level="INFO" doc:name="Logger" doc:id="34289a35-882a-4b79-baf2-851050a355ce" message="Salesforce Exception Encountered"/>
+				<set-variable value="#[error.description]" doc:name="Set Variable" doc:id="7a2967ec-c396-456e-a9cf-c012335eea91" variableName="errorDescription"/>
+				<set-variable value="400" doc:name="Set 400" doc:id="6a983903-64ca-427c-ad2e-e7a266f757f5" variableName="httpStatus"/>
+			</on-error-continue>
+		</error-handler> 
+	</flow>
+</mule>

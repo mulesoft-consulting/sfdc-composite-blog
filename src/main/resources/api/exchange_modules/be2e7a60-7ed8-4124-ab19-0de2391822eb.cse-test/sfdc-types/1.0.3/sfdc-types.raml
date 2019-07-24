@@ -1,0 +1,55 @@
+#%RAML 1.0 Library
+usage: Use for SFDC System/Data Access API request/response objects
+
+types:
+  contact:
+    displayName: Contact
+    description: Contact and its Parent Account object
+    properties: 
+      name: string
+      email:
+        pattern:  "^(.+)@(.+)$"
+      phone:
+        pattern: "[0-9|-]+"
+      title: string
+      department: string
+      account: 
+        type: object
+        required: false
+        properties: 
+          name: string
+          active: boolean
+          sla:
+            type: string
+            enum: ['Gold','Silver','Bronze','Platinum']
+    example:
+      name: Julie Johnson
+      email: juliej@aviato.com
+      department: Marketing
+      title: VP
+      phone: 303-233-0291
+      account:
+        name: Aviato Corp
+        active: true
+        sla: Gold
+
+  account:
+    displayName: Account
+    description: Account object
+    properties: 
+      phone: 
+        pattern: "[0-9|-]+"
+      website: string
+      numberOfEmployees: integer
+      name: string
+      active: boolean
+      sla:
+        type: string
+        enum: ['Gold','Silver','Bronze','Platinum']
+      accountNumber: string
+      contacts:
+        type: contact[]
+        required: false
+      childAccounts: 
+        type: account[]
+        required: false

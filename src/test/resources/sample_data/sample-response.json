@@ -1,0 +1,29 @@
+{
+    "results": [
+        {
+            "referenceId": "AC0020",
+            "id": "0011K00002EJyK1QAL"
+        },
+        {
+            "referenceId": "CC0040",
+            "id": "0011K00002EJyK2QAL"
+        },
+        {
+            "referenceId": "b.terw@avconet.com",
+            "id": "0031K00002lkCBtQAM"
+        },
+        {
+            "referenceId": "c.terw@avconet.com",
+            "id": "0031K00002lkCBuQAM"
+        },
+        {
+            "referenceId": "fry@codeco.com",
+            "id": "0031K00002lkCBvQAM"
+        },
+        {
+            "referenceId": "amy@codeco.com",
+            "id": "0031K00002lkCBwQAM"
+        }
+    ],
+    "success": true
+}

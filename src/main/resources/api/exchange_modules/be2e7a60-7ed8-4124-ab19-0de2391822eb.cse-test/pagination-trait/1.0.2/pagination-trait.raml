@@ -1,0 +1,25 @@
+#%RAML 1.0 Trait
+usage: Implement Pagination for Query requests
+description: Trait representing pagination parameters for GET requests and response object
+
+queryParameters: 
+  limit:
+    type: integer
+    maximum: 200
+    default: 20
+    required: false
+    description: Number of records to fetch for the page
+  offset: 
+    type: integer
+    default: 0
+    required: false
+    description: Starting record for the page
+responses: 
+  200:
+    body: 
+      application/json:
+        properties: 
+          totalRecords: number
+          currentOffset: number
+          numberOfRecords: number
+          results: object[]

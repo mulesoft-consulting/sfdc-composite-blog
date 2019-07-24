@@ -1,0 +1,53 @@
+ {
+    "phone": "303-123-8568",
+    "website": "www.avconet.com",
+    "numberOfEmployees": "20",
+    "name": "AvCo Net",
+    "active": true,
+    "sla": "Gold",
+    "accountNumber": "AC0020",
+	"contacts": [
+      {
+        "name": "Bob Terwiliger",
+        "email": "b.terw@avconet.com",
+        "phone": "303-123-8569",
+        "title": "President",
+        "department": "Sales"
+      },
+      {
+        "name": "Cecil Terwiliger",
+        "email": "c.terw@avconet.com",
+        "phone": "303-123-8570",
+        "title": "Vice President",
+        "department": "Operations"
+      }
+    ],
+        
+    "childAccounts":[
+     {
+    "phone": "425-123-2342",
+    "website": "www.codeco.com",
+    "numberOfEmployees": "10",
+    "name": "CodeCo",
+    "active": true,
+    "sla": "Gold",
+    "accountNumber": "CC0040",
+    "contacts": [
+      {
+        "name": "Philip Fry",
+        "email": "fry@codeco.com",
+        "phone": "415-123-8569",
+        "title": "Lead Architect",
+        "department": "Engineering"
+      },
+      {
+        "name": "Amy Wong",
+        "email": "amy@codeco.com",
+        "phone": "415-123-8570",
+        "title": "Head of Marketing",
+        "department": "Marketing"
+      }
+    ]
+  }
+  ]
+  }

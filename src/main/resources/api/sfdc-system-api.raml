@@ -1,0 +1,43 @@
+#%RAML 1.0
+baseUri: https://mocksvc.mulesoft.com/mocks/4b91f3a6-297d-4513-bf85-a7e67a997ac3 # 
+title: SFDC System API
+version: 1
+description: Used for common interface to SFDC objects
+
+uses: 
+   sfdc-types: exchange_modules/be2e7a60-7ed8-4124-ab19-0de2391822eb.cse-test/sfdc-types/1.0.3/sfdc-types.raml
+  
+traits: 
+  paginated: !include exchange_modules/be2e7a60-7ed8-4124-ab19-0de2391822eb.cse-test/pagination-trait/1.0.2/pagination-trait.raml
+
+/contacts:
+  description: Operation on Contacts
+  displayName: Contacts
+  is: [paginated]
+  get:
+    queryParameters: 
+      name:
+        description: optinal wildcard search based on contact Name.
+    responses: 
+      200:
+        body: 
+          application/json:
+            properties: 
+              results: sfdc-types.contact[]
+
+/accounts:
+  description: Operation on Accounts and related objects
+  displayName: Accounts
+  post:
+    description: Create an account and optionally sub-accounts and contacts
+    body: 
+      application/json: sfdc-types.account
+    responses: 
+      201:
+        body: 
+          application/json:
+            properties: 
+              success: boolean
+              results: object
+            
+      
