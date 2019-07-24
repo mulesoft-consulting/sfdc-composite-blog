@@ -17,7 +17,7 @@ http://www.mulesoft.org/schema/mule/salesforce-composite http://www.mulesoft.org
     <salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="f98dd699-9c47-43a0-a879-a851df143f84" >
 		<salesforce:cached-basic-connection username="${sfdc.username}" password="${sfdc.password}" securityToken="${sfdc.apitoken}"/>
 	</salesforce:sfdc-config>
-	<configuration-properties doc:name="Configuration properties" doc:id="5777e9ed-ff3a-4380-83de-a3245b8ecb5f" file="mule-app.properties" />
+	<configuration-properties doc:name="Configuration properties" doc:id="5777e9ed-ff3a-4380-83de-a3245b8ecb5f" file="local.properties,mule-app.properties" />
 	<salesforce-composite:composite-config name="Salesforce_Composite_Config" doc:name="Salesforce Composite Config" doc:id="4bdd46a7-e383-4122-88d7-10f727451398" >
 		<salesforce-composite:oauth-user-pass-connection consumerKey="${sfdc.consumerKey}" consumerSecret="${sfdc.consumerSecret}" username="${sfdc.username}" password="${sfdc.password}" securityToken="${sfdc.apitoken}" />
 	</salesforce-composite:composite-config>
