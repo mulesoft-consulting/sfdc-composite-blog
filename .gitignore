@@ -21,6 +21,7 @@ tmp/**/*
 *.swp
 *~.nib
 local.properties
+mule-app.properties
 .settings/
 .loadpath
 .project
